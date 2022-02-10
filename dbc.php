@@ -2,7 +2,7 @@
 function dbConnect() {
 try
 {
-    $dbs = "mysql:host=localhost;dbname=testdb;charset=utf8";
+    $dbs = "mysql:host=localhost;dbname=Blogdb;charset=utf8";
     $user='root';
     $password='root';
     $dbh=new PDO($dbs, $user, $password);
@@ -19,7 +19,7 @@ catch (Exception $e)
 
 function getAllBlog() {
     $dbh = dbConnect();
-    $sql='SELECT * FROM user';
+    $sql='SELECT * FROM Blogdata';
     $stmt=$dbh->prepare($sql);
 
     $dbh=null;

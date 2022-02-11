@@ -1,21 +1,9 @@
 <?php
 require "./dbc.php";
-$dbh = dbConnect();
+
 
 $id = $_GET['id'];
-
-if (empty($id)) {
-    exit('IDが不正です。');
-}
-
-$stmt = $dbh->prepare('SELECT * FROM Blogdata WHERE id = :id');
-$stmt->bindValue(':id', (int)$id, PDO::PARAM_INT);
-$stmt->execute();
-$result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-if (!$result) {
-    exit('ブログがありません。');
-}
+$result = getBlog($id);
 ?>
 <!DOCTYPE html>
 <html lang="en">

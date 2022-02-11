@@ -1,21 +1,10 @@
 <?php
 require "./dbc.php";
+
+
+
 $blogData = getAllBlog();
-echo 'majide'. '<br>';
 
-foreach($blogData as $loop){
-    echo $loop['id']." ".$loop['name'].'<br>';
-}
-
-function setCategoryName($category){
-    if ($category == '1'){
-        return 'ブログ';
-    } elseif ($category == '2'){
-        return '日常';
-    } else {
-        return 'その他';
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +17,7 @@ function setCategoryName($category){
 </head>
 <body>
     <h2>ブログ一覧</h2>
+    <p><a href="./form.html">新規作成</a></p>
     <table>
         <tr>
             <th>No</th>

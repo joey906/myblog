@@ -22,22 +22,6 @@ if (empty($blog['publish_status'])) {
     exit('公開ステータスは必須です');
 }
 
-$sql = 'INSERT INTO 
-            Blogdata(title, content, category, published_status)
-        VALUES
-            (:title, :content, :category, :published_status)';
-
-$dbh = dbConnect();
-
-try {
-    $stmt = $dbh->prepare($sql);
-    $stmt->bindValue(':title', $blog['title'], PDO::PARAM_STR);
-    $stmt->bindValue(':content', $blog['content'], PDO::PARAM_STR);
-    $stmt->bindValue(':category', $blog['category'], PDO::PARAM_INT);
-    $stmt->bindValue(':published_status', $blog['publish_status'], PDO::PARAM_INT);
-    $stmt->execute();
-} catch(PDOException $e) {
-    exit($e);
-}
-
+$dbc = new Dbc();
+$dbc->blogCreate($blog);
 ?>

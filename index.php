@@ -1,8 +1,8 @@
 <?php
-require_once("./dbc.php");
-
-$dbc = new Dbc();
-$blogData = $dbc->getAllBlog();
+require_once("./blog.php");
+ini_set('display_errors', 'On');
+$blog = new Blog();
+$blogData = $blog->getAll();
 
 
 ?>
@@ -28,7 +28,7 @@ $blogData = $dbc->getAllBlog();
         <tr>
             <td><?php echo $column["id"]?></td>
             <td><?php echo $column["title"]?></td>
-            <td><?php echo $dbc->setCategoryName($column["category"])?></td>
+            <td><?php echo $blog->setCategoryName($column["category"])?></td>
             <td><a href="/detail.php?id=<?php echo $column["id"]?>">詳細</a></td>
         </tr>
         <?php endforeach;?>

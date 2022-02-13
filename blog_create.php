@@ -1,27 +1,28 @@
 <?php
-require "./dbc.php";
-$blog = $_POST;
+require_once "./blog.php";
+ini_set('display_errors', 'On');
+$blogs = $_POST;
 
-if (empty($blog['title'])) {
+if (empty($blogs['title'])) {
     exit('タイトルを入力してください');
 }
 
-if (mb_strlen($blog['title']) > 191) {
+if (mb_strlen($blogs['title']) > 191) {
     exit('タイトルは191文字以下にしてください');
 }
 
-if (empty($blog['content'])) {
+if (empty($blogs['content'])) {
     exit('本文を入力してください');
 }
 
-if (empty($blog['category'])) {
+if (empty($blogs['category'])) {
     exit('カテゴリーは必須です');
 }
 
-if (empty($blog['publish_status'])) {
+if (empty($blogs['publish_status'])) {
     exit('公開ステータスは必須です');
 }
 
-$dbc = new Dbc();
-$dbc->blogCreate($blog);
+$blog = new Blog();
+$blog->blogCreate($blogs);
 ?>

@@ -20,5 +20,6 @@ $result = $blog->getById($id);
     <p>カテゴリ:<?php echo $blog->setCategoryName($result['category'])?></p>
     <hr>
     <p>本文:<?php echo $result['content']?></p>
+    <p><a href="/">戻る</a></p>
 </body>
 </html>

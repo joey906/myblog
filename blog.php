@@ -3,6 +3,7 @@ require_once('./dbc.php');
 Class Blog extends Dbc 
 {
     protected $table_name = "Blogdata";
+    protected $table_name2 = "users";
 
     //カテゴリ名表示
     public function setCategoryName($category){

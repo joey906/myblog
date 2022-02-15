@@ -3,6 +3,7 @@ require_once("./env.php");
 Class Dbc 
 {
     protected $table_name;
+    protected $table_name2;
 
     protected function dbConnect() {
         $host = DB_HOST;

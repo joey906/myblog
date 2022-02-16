@@ -63,6 +63,38 @@ Class Blog extends Dbc
         }
     }
 
+    //ログイン機能
+    public function login($loginInfo){
+        $pass = $loginInfo['pass'];
+        $name = $loginInfo['name'];
+        $dbh = $this->dbConnect();
+        $stmt = $dbh->prepare("SELECT * FROM $this->table_name2 WHERE name LIKE :name");
+        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if (!$result) {
+            exit('ユーザー名が間違っています');
+        }
+
+        if (password_verify($pass, $result['password'])) {
+            session_start();
+            $_SESSION['id'] = $result['id'];
+            $_SESSION['name'] = $result['name'];
+            $_SESSION['email'] = $result['email'];
+            var_dump($_SESSION);
+            echo 'ログインしました';
+        } else {
+            echo 'パスワードが違います';
+            var_dump($result);
+        }
+    }
+
+    public function logout(){
+        unset($_SESSION);
+        echo 'ログアウトしました';
+    }
+
     //ブログのバリデーション
     public function blogValidate($blogs) {
         if (empty($blogs['title'])) {
@@ -83,6 +115,17 @@ Class Blog extends Dbc
         
         if (empty($blogs['publish_status'])) {
             exit('公開ステータスは必須です');
+        }
+    }
+
+    //ログインのバリデーション
+    public function loginValidate($loginInfo) {
+        if (empty($loginInfo['name'])){
+            exit('名前を入力してください');
+        }
+
+        if (empty($loginInfo['pass'])){
+            exit('パスワードを入力してください');
         }
     }
 }

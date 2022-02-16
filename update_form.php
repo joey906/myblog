@@ -38,6 +38,6 @@ $publish_status = (int)$result['published_status'];
         <br>
         <input type="submit" value="送信">
     </form>
-    
+    <a href="/">戻る</a>
 </body>
 </html>

@@ -8,6 +8,10 @@ function h($s) {
     return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
 }
 
+if (!empty($_SESSION)) {
+    echo $_SESSION['name']."こんにちは!";
+}
+var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +24,8 @@ function h($s) {
 </head>
 <body>
     <h2>ブログ一覧</h2>
+    <p><a href="./login_form.php"><?php if (empty($_SESSION)) echo "ログイン";?></a></p>
+    <p><a href="./logout.php"><?php if (!empty($_SESSION)) echo "ログアウト";?></a></p>
     <p><a href="./form.html">新規作成</a></p>
     <table>
         <tr>

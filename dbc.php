@@ -58,6 +58,7 @@ Class Dbc
         return $result;
     }
 
+    //投稿削除
     public function delete($id){
         $dbh = $this->dbConnect();
         if (empty($id)) {

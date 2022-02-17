@@ -9,11 +9,18 @@
 <body>
     <h2>ログインフォーム</h2>
     <form action="./login.php" method="POST">
-        <p>名前：</p>
-        <input type="text" name="name">
-        <p>パスワード：</p>
-        <input type="password" name="pass">
-        <input type="submit" value="送信">
+        <p>
+            <label for="name">名前：</label>
+            <input type="text" name="name">
+        </p>
+       
+        <p>
+            <label for="password">パスワード：</label>
+            <input type="password" name="pass">
+        </p>
+        
+        <input type="submit" value="ログイン">
     </form>
+    <a href="/">戻る</a>
 </body>
 </html>

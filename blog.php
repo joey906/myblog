@@ -16,6 +16,15 @@ Class Blog extends Dbc
         }
     }
 
+    //公開状態表示
+    public function setPublishStatus($status){
+        if ($status == '1'){
+            return '公開';
+        } else {
+            return '非公開';
+        }
+    }
+
     public function blogCreate($blog){
         $sql = "INSERT INTO 
             $this->table_name(title, content, category, published_status)
@@ -91,7 +100,9 @@ Class Blog extends Dbc
     }
 
     public function logout(){
-        unset($_SESSION);
+        $_SESSION = array();
+        session_start();
+        session_destroy();
         echo 'ログアウトしました';
     }
 
@@ -126,6 +137,14 @@ Class Blog extends Dbc
 
         if (empty($loginInfo['pass'])){
             exit('パスワードを入力してください');
+        }
+    }
+
+    //管理者のバリデーション
+    public static function authValidate() {
+        session_start();
+        if (!isset($_SESSION['name'])) {
+            exit('ログインしていません');
         }
     }
 }

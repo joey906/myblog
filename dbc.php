@@ -39,6 +39,20 @@ Class Dbc
         $all = $stmt->fetchAll();
         return $all;
     }
+
+    //index.phpでpublished_statusが公開のものだけ表示
+    public function getPublicBlog() {
+        $dbh = $this->dbConnect();
+        $sql="SELECT * FROM $this->table_name WHERE published_status = 1";
+        $stmt=$dbh->prepare($sql);
+    
+        $dbh=null;
+     //実行
+        $stmt->execute();
+    
+        $all = $stmt->fetchAll();
+        return $all;
+    }
     
     //detailでブログ詳細画面表示
     public function getById($id) {
@@ -70,6 +84,12 @@ Class Dbc
         $stmt->execute();
         echo 'ブログを削除しました';
         return $result;
+    }
+
+    //XSS対策:エスケープ処理
+
+    public function h($s) {
+        return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
     }
 }
 

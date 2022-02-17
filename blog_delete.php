@@ -1,6 +1,7 @@
 <?php
 
 require_once "./blog.php";
+Blog::authValidate();
 
 $id = $_GET['id'];
 $blog = new Blog();

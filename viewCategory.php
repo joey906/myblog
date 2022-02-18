@@ -2,17 +2,23 @@
 require_once("./blog.php");
 session_start();
 ini_set('display_errors', 'On');
+$num = $_GET['num'];
+
 $blog = new Blog();
-$blogData = $blog->getMaxFive();
+$head = $blog->setCategoryName($num);
+if ($num == 0) {
+    $blogData = $blog->getPrivateBlog();
+} else {
+    $blogData = $blog->getCategoryPost($num);
+}
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>topPage</title>
+    <title>ブログ一覧</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/top.css">
@@ -37,12 +43,10 @@ $blogData = $blog->getMaxFive();
             </ul>
         </div>
         <table>
-        <h2 class="head">最近の投稿</h2>
-            <tr>
+        <h2 class="head"><?php echo $head;?>一覧</h2>
+        <tr>
                 <th>タイトル</th>
-                <th>カテゴリ</th>
                 <th>投稿日時</th>
-                
                 <?php if (!empty($_SESSION)):?>
                     <th>投稿ステータス</th>
                     <th></th>
@@ -52,19 +56,18 @@ $blogData = $blog->getMaxFive();
             <?php foreach($blogData as $column):?>
             <tr>
                 <td><a href="/detail.php?id=<?php echo $column["id"]?>"><?php echo $blog->h($column["title"])?></a></td>
-                <td><?php echo $blog->h($blog->setCategoryName($column["category"]))?></td>
                 <td><?php echo $blog->h($column["post_at"])?></td>
-                
                 <?php if (!empty($_SESSION)):?>
                     <td><?php echo $blog->setPublishStatus($column["published_status"])?></td>
                     <td><a href="/update_form.php?id=<?php echo $column["id"]?>">編集</a></td>
                     <td><a href="/blog_delete.php?id=<?php echo $column["id"]?>">削除</a></td>
                 <?php endif;?>
             </tr>
-            
             <?php endforeach;?>
-            </table>
+            
+        </table>
         </div>
     </div>
+    <a href="/">戻る</a>
 </body>
 </html>

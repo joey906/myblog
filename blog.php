@@ -12,7 +12,7 @@ Class Blog extends Dbc
         } elseif ($category == '2'){
             return 'プログラミング';
         } else {
-            return 'その他';
+            return '非公開記事';
         }
     }
 

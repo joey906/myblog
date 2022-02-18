@@ -26,7 +26,7 @@ Class Dbc
         return $dbh;
     }
     
-    //index.phpで全ての投稿を表示
+    //全ての投稿を表示
     public function getAll() {
         $dbh = $this->dbConnect();
         $sql="SELECT * FROM $this->table_name";
@@ -40,10 +40,52 @@ Class Dbc
         return $all;
     }
 
-    //index.phpでpublished_statusが公開のものだけ表示
+    //降順で最新の5つの投稿を用意
+    public function getMaxFive(){
+        $dbh = $this->dbConnect();
+        $sql="SELECT * FROM $this->table_name WHERE published_status = 1 ORDER BY post_at DESC LIMIT 5";
+        $stmt=$dbh->prepare($sql);
+    
+        $dbh=null;
+     //実行
+        $stmt->execute();
+    
+        $all = $stmt->fetchAll();
+        return $all;
+    }
+
+    //カテゴリ別で全ての投稿を用意
+    public function getCategoryPost($num) {
+        $dbh = $this->dbConnect();
+        $sql="SELECT * FROM $this->table_name WHERE category = $num ORDER BY post_at DESC";
+        $stmt=$dbh->prepare($sql);
+    
+        $dbh=null;
+     //実行
+        $stmt->execute();
+    
+        $all = $stmt->fetchAll();
+        return $all;
+    }
+
+    //published_statusが公開のものだけ表示
     public function getPublicBlog() {
         $dbh = $this->dbConnect();
-        $sql="SELECT * FROM $this->table_name WHERE published_status = 1";
+        $sql="SELECT * FROM $this->table_name WHERE published_status = 1 ORDER BY post_at DESC";
+        $stmt=$dbh->prepare($sql);
+    
+        $dbh=null;
+     //実行
+        $stmt->execute();
+    
+        $all = $stmt->fetchAll();
+        return $all;
+    }
+
+    //非公開の記事を用意
+    public function getPrivateBlog() {
+        $dbh = $this->dbConnect();
+        $sql="SELECT * FROM $this->table_name WHERE published_status = 2 ORDER BY post_at DESC";
         $stmt=$dbh->prepare($sql);
     
         $dbh=null;

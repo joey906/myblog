@@ -19,13 +19,14 @@ body {
 
 a {
     text-decoration: none;
-    color: #333;
+    color: rgb(203, 83, 240);
 }
 a:hover {
-    color:rgba(36, 36, 36, 0.5);
+    color:rgb(221, 141, 245);
 }
 
 .wrapper {
+    background-color: #fff;
     width: 80%;
     margin: 0 auto;
     margin-top: 50px;
@@ -44,6 +45,22 @@ a:hover {
 .head {
     margin-left: 10%;
     font-weight:bold;
+}
+
+.headWrap {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left {
+    display: flex;
+}
+
+.right {
+    display: flex;
 }
 
 .title {

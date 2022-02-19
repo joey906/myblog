@@ -42,6 +42,7 @@ if ($num == 0) {
                 <li><a href="./newForm.php"><?php if (!empty($_SESSION)) echo "新規作成";?></a></li>
             </ul>
         </div>
+        
         <table>
         <h2 class="head"><?php echo $head;?>一覧</h2>
         <tr>

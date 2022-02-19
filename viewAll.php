@@ -23,6 +23,7 @@ if (!empty($_SESSION)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
+    <?php if (!empty($_SESSION)):?>
     <div class="wrapper">
         <div class="container">
         <h1 class="title">ジョイの勉強ブログ</h1>
@@ -67,6 +68,47 @@ if (!empty($_SESSION)) {
         </table>
         </div>
     </div>
+    <?php else:?>
+        <div class="wrapper">
+        <div class="container">
+            <h1 class="title">ジョイの勉強ブログ</h1>
+            <p><?php if (!empty($_SESSION)) echo $_SESSION['name']."こんにちは!"; ?></p>
+            <div class="headWrap">
+                <ul class="left">
+                    <li><a href="./viewAll.php">記事一覧</a></li>
+                    <li><a href="./viewCategory.php?num=1">日常</a></li>
+                    <li><a href="./viewCategory.php?num=2">プログラミング</a></li>
+                    <li><a href="./viewCategory.php?num=0"><?php if (!empty($_SESSION)) echo "非公開記事";?></a></li>
+                </ul>
+                <ul class="right">
+                    <li><a href="./login_form.php"><?php if (empty($_SESSION)) echo "ログイン";?></a></li>
+                    <li><a href="./logout.php"><?php if (!empty($_SESSION)) echo "ログアウト";?></a></li>
+                    <li><a href="./newForm.php"><?php if (!empty($_SESSION)) echo "新規作成";?></a></li>
+                </ul>
+            </div>
+
+            <h2 class="head">Recent Posts</h2>
+            <div class="middleWrap">
+                
+                <div class="midTop">
+                    <p>タイトル</p>
+                    <p>投稿日</p>
+                </div>
+                <?php foreach($blogData as $column):?>
+                <a href="/detail.php?id=<?php echo $column["id"]?>">
+                <div class="midLeft">
+                    <p class="text">
+                    <?php echo $blog->h($column["title"])?>
+                    </p>
+                    <p class="text">
+                    <?php echo $blog->h($column["post_at"])?>
+                    </p>  
+                </div>
+                </a>
+                <?php endforeach;?>
+            </div>
+        </div>
+    <?php endif;?>
     <a href="/">戻る</a>
 </body>
 </html>

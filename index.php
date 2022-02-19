@@ -21,49 +21,58 @@ $blogData = $blog->getMaxFive();
 <body>
     <div class="wrapper">
         <div class="container">
-        <h1 class="title">ジョイの勉強ブログ</h1>
-        <p><?php if (!empty($_SESSION)) echo $_SESSION['name']."こんにちは!"; ?></p>
-        <div class="headWrap">
-            <ul class="left">
-                <li><a href="./viewAll.php">記事一覧</a></li>
-                <li><a href="./viewCategory.php?num=1">日常</a></li>
-                <li><a href="./viewCategory.php?num=2">プログラミング</a></li>
-                <li><a href="./viewCategory.php?num=0"><?php if (!empty($_SESSION)) echo "非公開記事";?></a></li>
-            </ul>
-            <ul class="right">
-                <li><a href="./login_form.php"><?php if (empty($_SESSION)) echo "ログイン";?></a></li>
-                <li><a href="./logout.php"><?php if (!empty($_SESSION)) echo "ログアウト";?></a></li>
-                <li><a href="./newForm.php"><?php if (!empty($_SESSION)) echo "新規作成";?></a></li>
-            </ul>
-        </div>
-        <table>
-        <h2 class="head">最近の投稿</h2>
-            <tr>
-                <th>タイトル</th>
-                <th>カテゴリ</th>
-                <th>投稿日時</th>
+            <h1 class="title">ジョイの勉強ブログ</h1>
+            <p><?php if (!empty($_SESSION)) echo $_SESSION['name']."こんにちは!"; ?></p>
+            <div class="headWrap">
+                <ul class="left">
+                    <li><a href="./viewAll.php">記事一覧</a></li>
+                    <li><a href="./viewCategory.php?num=1">日常</a></li>
+                    <li><a href="./viewCategory.php?num=2">プログラミング</a></li>
+                    <li><a href="./viewCategory.php?num=0"><?php if (!empty($_SESSION)) echo "非公開記事";?></a></li>
+                </ul>
+                <ul class="right">
+                    <li><a href="./login_form.php"><?php if (empty($_SESSION)) echo "ログイン";?></a></li>
+                    <li><a href="./logout.php"><?php if (!empty($_SESSION)) echo "ログアウト";?></a></li>
+                    <li><a href="./newForm.php"><?php if (!empty($_SESSION)) echo "新規作成";?></a></li>
+                </ul>
+            </div>
+
+            <h2 class="head">Recent Posts</h2>
+            <div class="middleWrap">
                 
-                <?php if (!empty($_SESSION)):?>
-                    <th>投稿ステータス</th>
-                    <th></th>
-                    <th></th>
-                <?php endif;?>
-            </tr>
-            <?php foreach($blogData as $column):?>
-            <tr>
-                <td><a href="/detail.php?id=<?php echo $column["id"]?>"><?php echo $blog->h($column["title"])?></a></td>
-                <td><?php echo $blog->h($blog->setCategoryName($column["category"]))?></td>
-                <td><?php echo $blog->h($column["post_at"])?></td>
-                
-                <?php if (!empty($_SESSION)):?>
-                    <td><?php echo $blog->setPublishStatus($column["published_status"])?></td>
-                    <td><a href="/update_form.php?id=<?php echo $column["id"]?>">編集</a></td>
-                    <td><a href="/blog_delete.php?id=<?php echo $column["id"]?>">削除</a></td>
-                <?php endif;?>
-            </tr>
-            
-            <?php endforeach;?>
-            </table>
+                <div class="midTop">
+                    <p>タイトル</p>
+                    <p>投稿日</p>
+                </div>
+                <?php foreach($blogData as $column):?>
+                <a href="/detail.php?id=<?php echo $column["id"]?>">
+                <div class="midLeft">
+                    <p class="text">
+                    <?php echo $blog->h($column["title"])?>
+                    </p>
+                    <p class="text">
+                    <?php echo $blog->h($column["post_at"])?>
+                    </p>  
+                </div>
+                </a>
+                <?php endforeach;?>
+            </div>
+
+            <h2 class="head">About Me</h2>
+            <div class="about">
+                <div class="photo">
+                    <img src="./photo/cosmos.png" class="img">
+                </div>
+                <div class="description">
+                    <p class="abouttext">
+                        エンジニアを目指しているジョイです！
+                        まだエンジニアの卵ですが、早くヒヨコになれるよう日々勉強中です。
+                        日々の勉強のアウトプットの場所としてブログを作りました。
+                        主にプログラミングに関することやインフラ関係、また英語に関する
+                        ことをアップしていきます。
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </body>

@@ -29,7 +29,7 @@ Class Dbc
     //全ての投稿を表示
     public function getAll() {
         $dbh = $this->dbConnect();
-        $sql="SELECT * FROM $this->table_name";
+        $sql="SELECT * FROM $this->table_name ORDER BY post_at DESC";
         $stmt=$dbh->prepare($sql);
     
         $dbh=null;

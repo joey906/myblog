@@ -182,7 +182,7 @@ a {
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 541px) {
     .i {
         width: 100%;
         height: auto;
@@ -198,5 +198,27 @@ a {
     }
     .left {
         display: none;
+    }
+
+    .midLeft {
+        display: block;
+    }
+
+    .time {
+        font-size: small;
+    }
+    .midTop {
+        display: none;
+    }
+    .about {
+        display: block;
+    }
+
+    .photo {
+        width: 100%;
+    }
+
+    .description {
+        width: 100%;
     }
 }

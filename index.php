@@ -61,7 +61,7 @@ $blogData = $blog->getMaxFive();
                     <p class="text">
                     <?php echo $blog->h($column["title"])?>
                     </p>
-                    <p class="text">
+                    <p class="text time">
                     <?php echo $blog->h($column["post_at"])?>
                     </p>  
                 </div>

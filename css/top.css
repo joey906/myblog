@@ -2,7 +2,7 @@ html, body {
     padding: 0;
     margin: 0;
 }
-  
+
 body {
     font-family: "游ゴシック体", "Yu Gothic", yugothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", meiryo, "MS Pゴシック", "MS PGothic", sans-serif;
     font-size: 16px;
@@ -27,10 +27,6 @@ body {
 
 a {
     text-decoration: none;
-    color: rgb(203, 83, 240);
-}
-a:hover {
-    color:rgb(221, 141, 245);
 }
 
 .wrapper {
@@ -54,110 +50,153 @@ a:hover {
     font-weight:bold;
 }
 
-.headWrap {
-    margin: 0 auto;
-    margin-bottom: 30px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
 
-.left {
-    display: flex;
-}
 
-.right {
-    display: flex;
-}
+@media screen and (max-width: 3000px) {
 
-.middleWrap {
-    width: 100%;
-    padding: 10px;
-    margin: 0 auto;
-    height: auto;
-    display: flex;
-    flex-flow: column;
-}
-
-.midTop {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 30px;
-}
-
-.midLeft {
-    display: flex;
-    justify-content: space-between;
-    padding: 16px;
-    border: 1px solid #333;
-    margin: 5px;
-}
-
-.midLeft:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.text {
-    color: #333;
-}
-
-.about {
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
-}
-
-.photo {
-    width: 45%;
-}
-
-.img {
-    width: 90%;
-    border-radius: 90px;
-}
-
-.description {
-    width: 45%;
-}
-
-.abouttext {
-    margin-top: 18px;
-    line-height: 30px;
-}
-
-.title {
-    text-align: center;
-    font-size: large;
-    padding: 16px;
-    font-weight: bold;
-}
-
-table {
-    margin: 0 auto;
-    width: 70%;
-}
-
-tr {
-    display: flex;
-}
-
-th, td {
-    padding: 10px;
-    width: 100%;
-}
-
-.description {
-    text-align: center;
-}
-
-.nav {
-    display: flex;
-    justify-content: flex-end;
-}
-
-li {
-    margin: 10px;
+ 
+    .headWrap {
+        margin: 0 auto;
+        margin-bottom: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
     
+    .left {
+        display: flex;
+    }
+    
+    .right {
+        display: flex;
+    }
+    
+    .link {
+        color: rgb(212, 81, 245);
+    }
+    
+    .link:hover {
+        color: rgb(223, 145, 242);
+    }
+    
+    
+    .middleWrap {
+        width: 100%;
+        padding: 10px;
+        margin: 0 auto;
+        height: auto;
+        display: flex;
+        flex-flow: column;
+    }
+    
+    .midTop {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 30px;
+    }
+    
+    .midLeft {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px;
+        border: 1px solid #333;
+        margin: 5px;
+    }
+    
+    .midLeft:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+    
+    .text {
+        color: #333;
+    }
+    
+    .about {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .photo {
+        width: 45%;
+    }
+    
+    .img {
+        width: 90%;
+        border-radius: 90px;
+    }
+    
+    .description {
+        width: 45%;
+    }
+    
+    .abouttext {
+        margin-top: 18px;
+        line-height: 30px;
+    }
+    
+    .title {
+        width: 100%;
+        text-align: center;
+        font-size: large;
+        padding: 16px;
+        font-weight: bold;
+    }
+    
+    .titleA {
+        color: #333;
+        font-size: large;
+        font-weight: bold;
+    }
+    
+    table {
+        margin: 0 auto;
+        width: 70%;
+    }
+    
+    tr {
+        display: flex;
+    }
+    
+    th, td {
+        padding: 10px;
+        width: 100%;
+    }
+    
+    .description {
+        text-align: center;
+    }
+    
+    .nav {
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    li {
+        margin: 10px;
+    }
+    .i {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .i {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    i {
+        font-family:  "Font Awesome 5 Free";
+        font-weight:  900;
+        content:  "\f521";
+        color: #333;
+    }
+    .left {
+        display: none;
+    }
 }

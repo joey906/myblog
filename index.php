@@ -16,24 +16,35 @@ $blogData = $blog->getMaxFive();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/top.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script src="https://kit.fontawesome.com/3d715e0df8.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
     <div class="wrapper">
         <div class="container">
-            <h1 class="title">ジョイの勉強ブログ</h1>
+            <div class="wrapd">
+            <h1 class="title"><a class="titleA" href="/">ジョイの勉強ブログ</a></h1>
+            </div>
+            
             <p><?php if (!empty($_SESSION)) echo $_SESSION['name']."こんにちは!"; ?></p>
+
+            <div id="i" class="i">
+                <a href="#fuu" class="secList"><i class="fa-solid fa-bars"></i></a>
+            </div>
+            
             <div class="headWrap">
-                <ul class="left">
-                    <li><a href="./viewAll.php">記事一覧</a></li>
-                    <li><a href="./viewCategory.php?num=1">日常</a></li>
-                    <li><a href="./viewCategory.php?num=2">プログラミング</a></li>
-                    <li><a href="./viewCategory.php?num=0"><?php if (!empty($_SESSION)) echo "非公開記事";?></a></li>
+                <ul id="fuu" class="left section">
+                    <li><a class="link" href="./viewAll.php">記事一覧</a></li>
+                    <li><a class="link" href="./viewCategory.php?num=1">日常</a></li>
+                    <li><a class="link" href="./viewCategory.php?num=2">プログラミング</a></li>
+                    <li><a class="link" href="./viewCategory.php?num=0"><?php if (!empty($_SESSION)) echo "非公開記事";?></a></li>
                 </ul>
                 <ul class="right">
-                    <li><a href="./login_form.php"><?php if (empty($_SESSION)) echo "ログイン";?></a></li>
-                    <li><a href="./logout.php"><?php if (!empty($_SESSION)) echo "ログアウト";?></a></li>
-                    <li><a href="./newForm.php"><?php if (!empty($_SESSION)) echo "新規作成";?></a></li>
+                    
+                    <li><a class="link"href="./logout.php"><?php if (!empty($_SESSION)) echo "ログアウト";?></a></li>
+                    <li><a class="link" href="./newForm.php"><?php if (!empty($_SESSION)) echo "新規作成";?></a></li>
                 </ul>
             </div>
 
@@ -75,5 +86,6 @@ $blogData = $blog->getMaxFive();
             </div>
         </div>
     </div>
+    <script src="/javascript/main.js"></script>
 </body>
 </html>

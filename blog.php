@@ -16,6 +16,16 @@ Class Blog extends Dbc
         }
     }
 
+    public function setEnglishCategory($category) {
+        if ($category == '1'){
+            return 'Dairy';
+        } elseif ($category == '2'){
+            return 'programing';
+        } else {
+            return '非公開記事';
+        }
+    }
+
     //公開状態表示
     public function setPublishStatus($status){
         if ($status == '1'){

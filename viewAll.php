@@ -26,19 +26,19 @@ if (!empty($_SESSION)) {
     <?php if (!empty($_SESSION)):?>
     <div class="wrapper">
         <div class="container">
-        <h1 class="title">ジョイの勉強ブログ</h1>
+        <h1 class="title"><a class="titleA" href="/">ジョイの勉強ブログ</a></h1>
         <p><?php if (!empty($_SESSION)) echo $_SESSION['name']."こんにちは!"; ?></p>
         <div class="headWrap">
             <ul class="left">
-                <li><a href="./viewAll.php">記事一覧</a></li>
-                <li><a href="./viewCategory.php?num=1">日常</a></li>
-                <li><a href="./viewCategory.php?num=2">プログラミング</a></li>
-                <li><a href="./viewCategory.php?num=0"><?php if (!empty($_SESSION)) echo "非公開記事";?></a></li>
+                <li><a class="links" href="./viewAll.php">記事一覧</a></li>
+                <li><a class="link" href="./viewCategory.php?num=1">日常</a></li>
+                <li><a class="link" href="./viewCategory.php?num=2">プログラミング</a></li>
+                <li><a class="link" href="./viewCategory.php?num=0"><?php if (!empty($_SESSION)) echo "非公開記事";?></a></li>
             </ul>
             <ul class="right">
-                <li><a href="./login_form.php"><?php if (empty($_SESSION)) echo "ログイン";?></a></li>
-                <li><a href="./logout.php"><?php if (!empty($_SESSION)) echo "ログアウト";?></a></li>
-                <li><a href="./newForm.php"><?php if (!empty($_SESSION)) echo "新規作成";?></a></li>
+                
+                <li><a class="link" href="./logout.php"><?php if (!empty($_SESSION)) echo "ログアウト";?></a></li>
+                <li><a class="link" href="./newForm.php"><?php if (!empty($_SESSION)) echo "新規作成";?></a></li>
             </ul>
         </div>
         <table>
@@ -55,13 +55,13 @@ if (!empty($_SESSION)) {
             </tr>
             <?php foreach($blogData as $column):?>
             <tr>
-                <td><a href="/detail.php?id=<?php echo $column["id"]?>"><?php echo $blog->h($column["title"])?></a></td>
+                <td><a class="link" href="/detail.php?id=<?php echo $column["id"]?>"><?php echo $blog->h($column["title"])?></a></td>
                 <td><?php echo $blog->h($blog->setCategoryName($column["category"]))?></td>
                 <td><?php echo $blog->h($column["post_at"])?></td>
                 <?php if (!empty($_SESSION)):?>
                     <td><?php echo $blog->setPublishStatus($column["published_status"])?></td>
-                    <td><a href="/update_form.php?id=<?php echo $column["id"]?>">編集</a></td>
-                    <td><a href="/blog_delete.php?id=<?php echo $column["id"]?>">削除</a></td>
+                    <td><a class="link" href="/update_form.php?id=<?php echo $column["id"]?>">編集</a></td>
+                    <td><a class="link" href="/blog_delete.php?id=<?php echo $column["id"]?>">削除</a></td>
                 <?php endif;?>
             </tr>
             <?php endforeach;?>
@@ -71,23 +71,23 @@ if (!empty($_SESSION)) {
     <?php else:?>
         <div class="wrapper">
         <div class="container">
-            <h1 class="title">ジョイの勉強ブログ</h1>
+            <h1 class="title"><a class="titleA" href="/">ジョイの勉強ブログ</a></h1>
             <p><?php if (!empty($_SESSION)) echo $_SESSION['name']."こんにちは!"; ?></p>
             <div class="headWrap">
                 <ul class="left">
-                    <li><a href="./viewAll.php">記事一覧</a></li>
-                    <li><a href="./viewCategory.php?num=1">日常</a></li>
-                    <li><a href="./viewCategory.php?num=2">プログラミング</a></li>
-                    <li><a href="./viewCategory.php?num=0"><?php if (!empty($_SESSION)) echo "非公開記事";?></a></li>
+                    <li><a class="link" href="./viewAll.php">記事一覧</a></li>
+                    <li><a class="link" href="./viewCategory.php?num=1">日常</a></li>
+                    <li><a class="link" href="./viewCategory.php?num=2">プログラミング</a></li>
+                    <li><a class="link" href="./viewCategory.php?num=0"><?php if (!empty($_SESSION)) echo "非公開記事";?></a></li>
                 </ul>
                 <ul class="right">
-                    <li><a href="./login_form.php"><?php if (empty($_SESSION)) echo "ログイン";?></a></li>
-                    <li><a href="./logout.php"><?php if (!empty($_SESSION)) echo "ログアウト";?></a></li>
-                    <li><a href="./newForm.php"><?php if (!empty($_SESSION)) echo "新規作成";?></a></li>
+                    <li><a class="link" href="./login_form.php"><?php if (empty($_SESSION)) echo "ログイン";?></a></li>
+                    <li><a class="link" href="./logout.php"><?php if (!empty($_SESSION)) echo "ログアウト";?></a></li>
+                    <li><a class="link" href="./newForm.php"><?php if (!empty($_SESSION)) echo "新規作成";?></a></li>
                 </ul>
             </div>
 
-            <h2 class="head">Recent Posts</h2>
+            <h2 class="head">All Posts</h2>
             <div class="middleWrap">
                 
                 <div class="midTop">
@@ -107,8 +107,9 @@ if (!empty($_SESSION)) {
                 </a>
                 <?php endforeach;?>
             </div>
+            <a href="/">戻る</a>
         </div>
     <?php endif;?>
-    <a href="/">戻る</a>
+    
 </body>
 </html>

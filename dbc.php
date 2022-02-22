@@ -133,6 +133,14 @@ Class Dbc
     public function h($s) {
         return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
     }
+
+    //サニタイジング処理
+    public function sanitize_br($str){
+
+        $str1 = str_replace(['\r\n','\r','\n'], ["\r\n","\r","\n"], $str);
+        return nl2br($this->h($str1), true);
+    
+    }
 }
 
 ?>

@@ -27,7 +27,7 @@ $result = $blog->getById($id);
     <p>カテゴリ:<?php echo $blog->setCategoryName($result['category'])?></p>
     <hr>
     <p>本文：</p>
-    <p class="mainTxt"><?php echo $result['content']?></p>
+    <p class="mainTxt"><?php echo $blog->sanitize_br($result['content'])?></p>
     <p><a href="/">戻る</a></p>
         </div>
     </div>

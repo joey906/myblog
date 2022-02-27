@@ -20,7 +20,7 @@ Blog::authValidate();
         <br>
         <p>カテゴリ：</p>
         <select name="category">
-            <option value="1">日常</option>
+            <option value="1">英語</option>
             <option value="2">プログラミング</option>
         </select>
         <br>

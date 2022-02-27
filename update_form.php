@@ -30,7 +30,7 @@ $publish_status = (int)$result['published_status'];
         <br>
         <p>カテゴリ：</p>
         <select name="category">
-            <option value="1" <?php if ($category == 1) echo "selected"?>>日常</option>
+            <option value="1" <?php if ($category == 1) echo "selected"?>>英語</option>
             <option value="2" <?php if ($category == 2) echo "selected"?>>プログラミング</option>
         </select>
         <br>

@@ -37,7 +37,7 @@ $blogData = $blog->getMaxFive();
             <div class="headWrap">
                 <ul id="fuu" class="left section">
                     <li><a class="link" href="./viewAll.php">記事一覧</a></li>
-                    <li><a class="link" href="./viewCategory.php?num=1">日常</a></li>
+                    <li><a class="link" href="./viewCategory.php?num=1">英語</a></li>
                     <li><a class="link" href="./viewCategory.php?num=2">プログラミング</a></li>
                     <li><a class="link" href="./viewCategory.php?num=0"><?php if (!empty($_SESSION)) echo "非公開記事";?></a></li>
                 </ul>

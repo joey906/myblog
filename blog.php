@@ -8,7 +8,7 @@ Class Blog extends Dbc
     //カテゴリ名表示
     public function setCategoryName($category){
         if ($category == '1'){
-            return '日常';
+            return '英語';
         } elseif ($category == '2'){
             return 'プログラミング';
         } else {
@@ -18,7 +18,7 @@ Class Blog extends Dbc
 
     public function setEnglishCategory($category) {
         if ($category == '1'){
-            return 'Dairy';
+            return 'English';
         } elseif ($category == '2'){
             return 'programing';
         } else {

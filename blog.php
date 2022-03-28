@@ -11,6 +11,8 @@ Class Blog extends Dbc
             return '英語';
         } elseif ($category == '2'){
             return 'プログラミング';
+        } elseif ($category == '3'){
+            return 'AWS';
         } else {
             return '非公開記事';
         }
@@ -21,7 +23,10 @@ Class Blog extends Dbc
             return 'English';
         } elseif ($category == '2'){
             return 'programing';
-        } else {
+        } elseif ($category == '3'){
+            return 'AWS';
+        }
+        else {
             return '非公開記事';
         }
     }

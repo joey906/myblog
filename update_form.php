@@ -32,6 +32,7 @@ $publish_status = (int)$result['published_status'];
         <select name="category">
             <option value="1" <?php if ($category == 1) echo "selected"?>>英語</option>
             <option value="2" <?php if ($category == 2) echo "selected"?>>プログラミング</option>
+            <option value="3" <?php if ($category == 3) echo "selected"?>>AWS</option>
         </select>
         <br>
         <input type="radio" name="publish_status" value="1" <?php if ($publish_status == 1) echo "checked"?>>公開

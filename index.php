@@ -14,8 +14,11 @@ $blogData = $blog->getMaxFive();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>topPage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
     <link rel="stylesheet" href="./css/reset.css">
+   
     <link rel="stylesheet" href="./css/top.css">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <script src="https://kit.fontawesome.com/3d715e0df8.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -25,7 +28,7 @@ $blogData = $blog->getMaxFive();
     <div class="wrapper">
         <div class="container">
             <div class="wrapd">
-            <h1 class="title"><a class="titleA" href="/">ジョイの勉強ブログ</a></h1>
+                <h1 class="title"><a class="titleA" href="/">ジョイの勉強ブログ</a></h1>
             </div>
             
             <p><?php if (!empty($_SESSION)) echo $_SESSION['name']."こんにちは!"; ?></p>
@@ -85,8 +88,43 @@ $blogData = $blog->getMaxFive();
                     </p>
                 </div>
             </div>
+
+            <h2 class="head">Contact</h2>
+            <div class="contact">
+                <div class="WhatIdo">
+                    <p class="contacttext">If you want to make incredible WEBsite, please contact me!</p>
+                </div>
+                <div class="information">
+                    <div class="emailTop">Email</div>
+                    <div class="email">junbomelow@icloud.com</div>
+                </div>
+
+                <div class="contact_form">
+                    <div id="message"></div>
+                    <form method="post" action="/contact.php">
+                        <div class="form-group">
+                            <input name="name" id="name" type="text" class="form-control" placeholder="FirstName" >
+                        </div>
+                        <div class="form-group">
+                            <input name="email" id="email" type="email" class="form-control" placeholder="SecondName" >
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="subject" placeholder="Title" >
+                        </div>
+                        <div class="form-group">
+                            <textarea name="comments" id="comments" rows="4" class="form-control" placeholder="Content"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" id="submit" name="send" class="submitBnt btn btn-custom text-uppercase" value="Submit">
+                            <div id="simple-msg"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
+    
+
     <script src="/javascript/main.js"></script>
 </body>
 </html>

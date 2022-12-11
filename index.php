@@ -28,10 +28,10 @@ $blogData = $blog->getMaxFive();
     <div class="wrapper">
         <div class="container">
             <div class="wrapd">
-                <h1 class="title"><a class="titleA" href="/">ジョイの勉強ブログ</a></h1>
+                <h1 class="title"><a class="titleA" href="/">My Study records</a></h1>
             </div>
             
-            <p><?php if (!empty($_SESSION)) echo $_SESSION['name']."こんにちは!"; ?></p>
+            <p><?php if (!empty($_SESSION)) echo $_SESSION['name']."Hello!"; ?></p>
 
             <div id="i" class="i">
                 <a href="#fuu" class="secList"><i class="fa-solid fa-bars"></i></a>
@@ -39,16 +39,16 @@ $blogData = $blog->getMaxFive();
             
             <div class="headWrap">
                 <ul id="fuu" class="left section">
-                    <li><a class="link" href="./viewAll.php">記事一覧</a></li>
-                    <li><a class="link" href="./viewCategory.php?num=1">英語</a></li>
-                    <li><a class="link" href="./viewCategory.php?num=2">プログラミング</a></li>
-                    <li><a class="link" href="./viewCategory.php?num=3">AWS</a></li>
-                    <li><a class="link" href="./viewCategory.php?num=0"><?php if (!empty($_SESSION)) echo "非公開記事";?></a></li>
+                    <li><a class="link" href="./viewAll.php">All articles</a></li>
+                    <li><a class="link" href="./viewCategory.php?num=1">Stock Investment</a></li>
+                    <li><a class="link" href="./viewCategory.php?num=2">English</a></li>
+                    <li><a class="link" href="./viewCategory.php?num=3">Others</a></li>
+                    <li><a class="link" href="./viewCategory.php?num=0"><?php if (!empty($_SESSION)) echo "Private Articles";?></a></li>
                 </ul>
                 <ul class="right">
                     
-                    <li><a class="link"href="./logout.php"><?php if (!empty($_SESSION)) echo "ログアウト";?></a></li>
-                    <li><a class="link" href="./newForm.php"><?php if (!empty($_SESSION)) echo "新規作成";?></a></li>
+                    <li><a class="link"href="./logout.php"><?php if (!empty($_SESSION)) echo "Log out";?></a></li>
+                    <li><a class="link" href="./newForm.php"><?php if (!empty($_SESSION)) echo "Create New";?></a></li>
                 </ul>
             </div>
 
@@ -56,8 +56,8 @@ $blogData = $blog->getMaxFive();
             <div class="middleWrap">
                 
                 <div class="midTop">
-                    <p>タイトル</p>
-                    <p>投稿日</p>
+                    <p>Title</p>
+                    <p>Date Posted</p>
                 </div>
                 <?php foreach($blogData as $column):?>
                 <a href="/detail.php?id=<?php echo $column["id"]?>">
@@ -80,11 +80,12 @@ $blogData = $blog->getMaxFive();
                 </div>
                 <div class="description">
                     <p class="abouttext">
-                        エンジニアを目指しているジョイです！
-                        まだエンジニアの卵ですが、早くヒヨコになれるよう日々勉強中です。
-                        日々の勉強のアウトプットの場所としてブログを作りました。
-                        主にプログラミングに関することやインフラ関係、また英語に関する
-                        ことをアップしていきます。
+                        I am a person who wants to be independent of money.
+                        So I study hard whenever I can!
+                        To reach this goal I began to study Stock Investment recently.
+                        I hope I will soon be able to get money.
+                        And also I study English so as to get a job in a foreign country.
+                        I'm very excited to imagine a day when I will work abroad.
                     </p>
                 </div>
             </div>

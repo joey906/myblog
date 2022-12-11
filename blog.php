@@ -8,26 +8,26 @@ Class Blog extends Dbc
     //カテゴリ名表示
     public function setCategoryName($category){
         if ($category == '1'){
-            return '英語';
+            return 'Stock Investments';
         } elseif ($category == '2'){
-            return 'プログラミング';
+            return 'English';
         } elseif ($category == '3'){
-            return 'AWS';
+            return 'Others';
         } else {
-            return '非公開記事';
+            return 'Private Articles';
         }
     }
 
     public function setEnglishCategory($category) {
         if ($category == '1'){
-            return 'English';
+            return 'Stock Investments';
         } elseif ($category == '2'){
-            return 'programing';
+            return 'English';
         } elseif ($category == '3'){
-            return 'AWS';
+            return 'Others';
         }
         else {
-            return '非公開記事';
+            return 'Private Articles';
         }
     }
 

@@ -20,9 +20,9 @@ Blog::authValidate();
         <br>
         <p>カテゴリ：</p>
         <select name="category">
-            <option value="1">英語</option>
-            <option value="2">プログラミング</option>
-            <option value="3">AWS</option>
+            <option value="1">Stock Investments</option>
+            <option value="2">English</option>
+            <option value="3">Others</option>
         </select>
         <br>
         <input type="radio" name="publish_status" value="1" checked>公開

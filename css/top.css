@@ -50,7 +50,50 @@ a {
     font-weight:bold;
 }
 
+.btn {
+    margin-top: 50px;
+    padding: 16px 60px;
+    color: white;
+    border-radius: 3px;
+    border: 1px solid rgb(212, 81, 245);
+    background-color: rgb(212, 81, 245);
+    font-size: 16px;
+}
 
+.btn:hover{
+    cursor: pointer;
+    border: 1px solid rgb(223, 145, 242);
+    background-color: rgb(223, 145, 242);
+}
+
+.WhatIdo {
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.information {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact {
+    width: 100%;
+}
+
+.contacttext {
+    
+    margin: 10px;
+}
+
+.contact_form {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.form-control {
+    width: 100%;
+}
 
 @media screen and (max-width: 3000px) {
 
@@ -222,3 +265,7 @@ a {
         width: 100%;
     }
 }
+.conduct {
+    font-size: large;
+}
+

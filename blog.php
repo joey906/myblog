@@ -111,6 +111,7 @@ Class Blog extends Dbc
         } else {
             echo 'パスワードが違います';
             var_dump($result);
+            echo $pass;
         }
     }
 
